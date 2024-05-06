@@ -1,1 +1,145 @@
-Test
+<!DOCTYPE html>
+<head>
+    <title>Martin Eppert</title>
+<!-- <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #FAF9F6;
+    }
+    h1 {
+        text-align: center;
+        margin-top: 20%;
+        font-size: 3em;
+    }
+    .content {
+        text-align: center;
+    }
+    cite {
+        font-style: italic;
+        font-size: 0.8em;
+    }
+    .img-links {
+        margin-top: 40px;
+        text-align: center;
+    }
+    .logo {
+        width: 40px; 
+        height: 40px;
+    }
+    .logo_link {
+        text-decoration: none;
+        margin : 10px;
+    }
+</style> 
+-->
+
+<script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style type="text/tailwindcss">
+    @layer utilities {
+        body {
+            @apply bg-[#FAF9F6] m-0 p-0 md:mx-60 mx-5;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            @apply text-center text-[3em] mt-[20%] mb-3;
+        }
+        h2 {
+            @apply text-xl font-bold my-2;
+        }
+        .content {
+            @apply text-center leading-4 mb-5;
+        }
+        .img-links {
+            @apply flex justify-center items-center m-5;
+        }
+        .logo {
+            @apply w-10 h-10;
+        }
+        .logo_link {
+            @apply no-underline m-3;
+        }
+        .citation {
+            @apply md:text-justify leading-4 mb-2;
+        }
+        a{
+            @apply underline text-blue-600 hover:text-blue-800 visited:text-pink-600
+        }
+        .me {
+            @apply underline;
+        }
+    }
+</style>
+
+<script>
+    function generateHtmlCitation(author, title, venue, date, doi) {
+        const citation = `<div class="citation">
+                            <p>${author}. "${title}" In <i>${venue}</i> ${date}. <a href="${doi}">[link]</a></p>
+                            </div>`;
+        return citation;
+    }
+    ciatations = [
+        [
+            "<span class=\"me\">Eppert, Martin</span> and Fent, Philipp and Neumann, Thomas", "A Tailored Regression for Learned Indexes: Logarithmic Error Regression", "Fourth Workshop in Exploiting AI Techniques for Data Management (aiDM '21), Association for Computing Machinery", "2021", "https://doi.org/10.1145/3464509.3464891"]
+    ]
+    talks = [
+        [
+            "<span class=\"me\">Eppert, Martin</span> and Peng, Mai Jacob", "Hackable Autodiff: Extending Enzyme to MLIR for Reverse Mode Gradients", "EnzymeCon", "2023", "https://enzyme.mit.edu/talks/EnzymeCon/"],
+        [
+            "Ludger Paehler and Alex Zinenko, Jose M Monsalve Diaz, <span class=\"me\">Eppert, Martin</span>, Johannes Doerfert, William Moses", 
+            "jax.infer: Inference with OpenMP on Commodity Hardware", 
+            "EnzymeCon", 
+            "2023", 
+            "https://www.youtube.com/watch?v=95HvUKlqiJg"],
+        [
+            "<span class=\"me\">Eppert, Martin</span>",
+            "Provable Convergence of Projection Pursuit for Unlabelled Data",
+            "3rd ASCAI Workshop in Potsdam",
+            "2024",
+            "https://docs.google.com/document/d/1ZmuAdAw1hWJQY5AzuPKUx_kRUjOpw6EkEqey7AgRrMc/edit#heading=h.bvsloepvpkj9"
+        ]
+    ]
+</script>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <div class="content">
+        My name is Martin Eppert and I am interested in machine learning, statistics and compilers.
+    </div>
+    <div class="content">
+        My email is <span class="myEmail">martin[dot]eppert[at]tum[dot]de</span> </br>
+    </div>
+    <div class="img-links">
+        <a href="https://github.com/umatin" target="blank" class="logo_link">
+            <img src="icons/github-mark.svg" class="logo">
+        </a>
+        <a href="https://www.linkedin.com/in/martin-eppert-059350228/" target="blank" class="logo_link">
+            <img src="icons/linked-in.svg" class="logo">
+        </a>
+        <a class="logo_link"href="https://orcid.org/0009-0000-2631-9691">
+            <img
+               src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg"
+               alt="ORCID iD icon"
+               class="logo"/>
+        </a>
+    </div>
+    <div id="publications">
+        <h2>Publications</h2>
+        <script>
+            ciatations.forEach(citation => {
+                document.getElementById("publications").innerHTML += generateHtmlCitation(...citation);
+            });
+        </script>
+        <h2>Talks</h2>
+        <script>
+            talks.forEach(citation => {
+                document.getElementById("publications").innerHTML += generateHtmlCitation(...citation);
+            });
+        </script>
+    </div>
+</body>
+</html>
